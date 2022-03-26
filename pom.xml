@@ -39,7 +39,7 @@
 								<!-- automatically creates the classpath using all project dependencies, 
 									also adding the project build directory -->
 								<classpath />
-								<argument>launchers.Launcher</argument>
+								<argument>launchers.MySQLLauncher</argument>
 							</arguments>
 						</configuration>
 					</plugin>
