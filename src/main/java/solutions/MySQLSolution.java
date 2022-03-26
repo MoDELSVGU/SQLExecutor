@@ -1,8 +1,8 @@
 package solutions;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import configurations.Configuration;
 import configurations.QueryConfiguration;
@@ -17,11 +17,14 @@ public class MySQLSolution extends Solution {
 		if (c instanceof QueryConfiguration) {
 			QueryConfiguration qc = (QueryConfiguration) c;
 			Connection conn = MySQLConnection.getConnection(qc.getsScenario(), qc.getDbusername(), qc.getDbpassword());
-			Statement st;
+			PreparedStatement st;
 			try {
-				st = conn.createStatement();
+				st = conn.prepareStatement(qc.getsQuery());
+				if (qc.getsQuery().contains("?")) {
+					st.setString(0, qc.getsCaller());
+				}
 				final long nanosExecutionStart = System.nanoTime();
-				st.executeQuery(qc.getsQuery());
+				st.executeQuery();
 				final long nanosExecutionEnd = System.nanoTime();
 				final double timeInSecs = ((double) nanosExecutionEnd - nanosExecutionStart) / 1_000_000_000;
 				printMetric(qc, METRIC_EXECUTION_TIME, timeInSecs);

@@ -3,10 +3,11 @@ package configurations;
 import java.util.Map;
 
 public class QueryConfiguration extends DatabaseConfiguration {
-	private String sScenario, sQuery;
+	private String sScenario, sQuery, sCaller;
 
 	private static final String ENV_QUERY = "QUERY";
 	private static final String ENV_SCENARIO = "SCENARIO";
+	private static final String ENV_CALLER = "CALLER";
 
 	public String getsScenario() {
 		return sScenario;
@@ -37,7 +38,20 @@ public class QueryConfiguration extends DatabaseConfiguration {
 		if (sScenario != null) {
 			setsScenario(sScenario);
 		}
+		
+		final String sCaller = env.get(ENV_CALLER);
+		if (sCaller != null) {
+			setsCaller(sCaller);
+		}
 
+	}
+
+	public String getsCaller() {
+		return sCaller;
+	}
+
+	public void setsCaller(String sCaller) {
+		this.sCaller = sCaller;
 	}
 
 }
