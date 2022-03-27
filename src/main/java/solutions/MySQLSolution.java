@@ -21,7 +21,7 @@ public class MySQLSolution extends Solution {
 			try {
 				st = conn.prepareStatement(qc.getsQuery());
 				if (qc.getsQuery().contains("?")) {
-					st.setString(0, qc.getsCaller());
+					st.setString(1, qc.getsCaller());
 				}
 				final long nanosExecutionStart = System.nanoTime();
 				st.executeQuery();
