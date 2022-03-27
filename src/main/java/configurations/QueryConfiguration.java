@@ -3,11 +3,20 @@ package configurations;
 import java.util.Map;
 
 public class QueryConfiguration extends DatabaseConfiguration {
-	private String sScenario, sQuery, sCaller;
+	private String sScenario, sQuery, sCaller, sRole;
 
 	private static final String ENV_QUERY = "QUERY";
 	private static final String ENV_SCENARIO = "SCENARIO";
 	private static final String ENV_CALLER = "CALLER";
+	private static final String ENV_ROLE = "ROLE";
+
+	public String getsRole() {
+		return sRole;
+	}
+
+	public void setsRole(String sRole) {
+		this.sRole = sRole;
+	}
 
 	public String getsScenario() {
 		return sScenario;
@@ -42,6 +51,11 @@ public class QueryConfiguration extends DatabaseConfiguration {
 		final String sCaller = env.get(ENV_CALLER);
 		if (sCaller != null) {
 			setsCaller(sCaller);
+		}
+		
+		final String sRole = env.get(ENV_ROLE);
+		if (sRole != null) {
+			setsRole(sRole);
 		}
 
 	}
