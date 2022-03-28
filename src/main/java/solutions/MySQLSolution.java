@@ -38,7 +38,7 @@ public class MySQLSolution extends Solution {
 		if (c instanceof QueryConfiguration) {
 			QueryConfiguration qc = (QueryConfiguration) c;
 
-			System.out.println(String.format("%s;%s;%s;%s;%s", qc.getsTool(), qc.getsQuery(), qc.getRunIndex(),
+			System.out.println(String.format("%s;%s;%s;%s;%s;%s", qc.getsTool(), qc.getsScenario(), qc.getsQuery(), qc.getRunIndex(),
 					metricExecutionTime, metricValue.toString()));
 
 		}
