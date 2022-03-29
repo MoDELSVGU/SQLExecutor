@@ -27,6 +27,7 @@ public class MySQLSolution extends Solution {
 				st.executeQuery();
 				final long nanosExecutionEnd = System.nanoTime();
 				final double timeInSecs = ((double) nanosExecutionEnd - nanosExecutionStart) / 1_000_000_000;
+				
 				printMetric(qc, METRIC_EXECUTION_TIME, timeInSecs);
 			} catch (SQLException e) {
 				e.printStackTrace();
