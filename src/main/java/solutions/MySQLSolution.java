@@ -24,7 +24,7 @@ public class MySQLSolution extends Solution {
 					st.setString(1, qc.getsCaller());
 				}
 				final long nanosExecutionStart = System.nanoTime();
-				st.executeQuery();
+				st.execute();
 				final long nanosExecutionEnd = System.nanoTime();
 				final double timeInSecs = ((double) nanosExecutionEnd - nanosExecutionStart) / 1_000_000_000;
 				
